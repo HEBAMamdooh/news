@@ -1,8 +1,9 @@
 <?php
-$page_title = "New Post";
-include('./includes/admin_header.php');
-include('./includes/admin_navbar.php');
+  $page_title = "New Post";
+  include('./includes/admin_header.php');
+  include('./includes/admin_navbar.php');
 ?>
+
 <div id="page-wrapper">
   <div class="container-fluid">
     <!-- Page Heading -->
@@ -55,30 +56,26 @@ include('./includes/admin_navbar.php');
           </div><!--  -->
         </form>  
         <?php
-        if(isset($_POST['add_post'])){
-          $title = $_POST['title'];                 
-          $author = $_POST['author'];                 
-          $content = $_POST['content'];                 
-          $tags = $_POST['tags'];                 
-          $category = $_POST['category'];      
-          $date = date('d-m-Y');
-
-          $image_name =$_FILES['image']['name'];                 
-          $image_temp=$_FILES['image']['tmp_name'];
-          move_uploaded_file($image_temp,"../images/$image_name");
-
-          $insertSql = "INSERT INTO `posts`
-          ( `title`, `author`, `date`, `image`, `content`, `tags`, `category`) 
-          VALUES 
-          ('$title','$author','$content','$tags','$category','$date','$image_name') ";
-          $insertPost = mysqli_query($con , $insertSql);
-          header("Location:posts.php");
-        }
+          if(isset($_POST['add_post'])){
+            $title = $_POST['title'];                 
+            $author = $_POST['author'];                 
+            $content = $_POST['content'];                 
+            $tags = $_POST['tags'];                 
+            $category = $_POST['category'];      
+            $date = date('d-m-Y');
+            $image_name =$_FILES['image']['name'];                 
+            $image_temp=$_FILES['image']['tmp_name'];
+            move_uploaded_file($image_temp,"../images/$image_name");
+            $insertSql = "INSERT INTO `posts`( `title`, `author`, `date`, `image`, `content`, `tags`, `category`) VALUES ('$title','$author','$content','$tags','$category','$date','$image_name') ";
+            $insertPost = mysqli_query($con , $insertSql);
+            header("Location:posts.php");
+          }
         ?>
       </div>
     </div> <!-- /.row -->
   </div> <!-- /.container-fluid -->
 </div>  <!-- /#page-wrapper -->
+
 <?php 
-include('./includes/admin_footer.php');
+  include('./includes/admin_footer.php');
 ?>

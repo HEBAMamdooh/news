@@ -89,10 +89,8 @@
     <?php 
       include('./inc/sidebar.php');
     ?>
-
   </div> <!-- row -->
   <hr>
-
   <!-- Footer -->
 <?php 
   include('./inc/footer.php');

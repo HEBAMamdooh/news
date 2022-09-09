@@ -9,13 +9,11 @@
   <div class="row">
     <!-- Blog Entries Column -->
     <div class="col-md-8">
-
       <h1 class="page-header">  WIND <small>News</small>  </h1>
 
       <?php
         $sql = " SELECT * FROM `posts` ";
         $posts = mysqli_query($con , $sql);
-
         while( $row = mysqli_fetch_assoc($posts) ):
           $id =$row['id'];
           $title=$row['title'];                 
@@ -28,13 +26,10 @@
           $comments=$row['comments'];                 
           $category=$row['category'];                 
       ?> 
-      <!-- First Blog Post -->
-      <h2>
-        <a href="post.php?pid=<?=$id?>"><?=$title?></a>
-      </h2>
-      <p class="lead">
-        by <a href="index.php"><?=$author?></a>
-      </p>
+
+      <!-- Blog Post -->
+      <h2><a href="post.php?pid=<?=$id?>"><?=$title?></a></h2>
+      <p class="lead">by <a href="index.php"><?=$author?></a></p>
       <p><span class="glyphicon glyphicon-time"></span> Posted on <?=$date?></p>
       <hr>
       <img class="img-responsive" src="images/<?=$image?>" alt="">
@@ -44,6 +39,7 @@
       <hr>
       <?php endwhile; ?>
     </div>
+
     <!-- Blog Sidebar Widgets Column -->
     <?php
       include('./inc/sidebar.php');
