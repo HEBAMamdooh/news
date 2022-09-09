@@ -13,7 +13,7 @@
 
       <?php
         $cid = $_GET['cid']; 
-        $sql = " SELECT * FROM `posts` WHERE `category` = '$cid' ";
+        $sql = " SELECT * FROM `posts` WHERE `category_id` = '$cid' ";
         $posts = mysqli_query($con , $sql);
         while( $row = mysqli_fetch_assoc($posts) ):
           $id =$row['id'];
@@ -25,7 +25,7 @@
           $content= substr($row['content'] , 0 , 150) ;                 
           $tags=$row['tags'];                 
           $comments=$row['comments'];                 
-          $category=$row['category'];                 
+          $category_id=$row['category_id'];                 
       ?>
 
       <!-- Blog Post -->

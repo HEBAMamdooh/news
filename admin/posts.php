@@ -37,7 +37,7 @@
                 $content= substr($row['content'] , 0 , 150) ;                 
                 $tags=$row['tags'];                 
                 $comments=$row['comments'];                 
-                $category=$row['category'];            
+                $category_id=$row['category_id'];            
                 $i++;                
             ?> 
             <tr>

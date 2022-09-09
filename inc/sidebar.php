@@ -26,10 +26,10 @@
             $categories = mysqli_query($con , $sql);
             while( $row = mysqli_fetch_assoc($categories) ):
               $id =$row['id'];
-              $title=$row['title'];                 
+              $name=$row['name'];                 
           ?> 
           <li>
-            <a href="#"><?=$title?></a>
+            <a href="by_category.php?cid=<?=$id?>"><?=$name?></a>
           </li>
           <?php endwhile; ?>
         </ul>

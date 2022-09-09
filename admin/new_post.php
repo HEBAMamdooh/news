@@ -29,9 +29,9 @@
                 $categories = mysqli_query($con , $sql);
                 while( $row = mysqli_fetch_assoc($categories) ):
                   $id =$row['id'];
-                  $title=$row['title']; 
+                  $name=$row['name']; 
               ?>
-              <option value="<?=$id?>"> <?=$title?> </option>
+              <option value="<?=$id?>"> <?=$name?> </option>
               <?php endwhile; ?>
             </select>
           </div><!-- category -->
@@ -66,7 +66,7 @@
             $image_name =$_FILES['image']['name'];                 
             $image_temp=$_FILES['image']['tmp_name'];
             move_uploaded_file($image_temp,"../images/$image_name");
-            $insertSql = "INSERT INTO `posts`( `title`, `author`, `date`, `image`, `content`, `tags`, `category`) VALUES ('$title','$author','$content','$tags','$category','$date','$image_name') ";
+            $insertSql = "INSERT INTO `posts`( `title`, `author`, `date`, `image`, `content`, `tags`, `category_id`) VALUES ('$title','$author','$content','$tags','$category_id','$date','$image_name') ";
             $insertPost = mysqli_query($con , $insertSql);
             header("Location:posts.php");
           }
