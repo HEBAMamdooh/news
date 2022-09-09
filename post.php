@@ -44,17 +44,20 @@
       <!-- Blog Comments -->
 
       <!-- Comments Form -->
-      <div class="well">
+      <div class="card">
           <h4>Leave a Comment:</h4>
           
           <?php
               if(isset($_POST['addComment'])){
+                $post_id = $_POST["$pid"];      
+                  $user_name = $_POST['user_name'];
+                  $email = $_POST['email'];
                   $message = $_POST['message'];
-                  $post = $_POST["$pid"];      
                   $date = date('d-m-Y');
 
-                  $sql = " INSERT INTO `comments`(`message`, `post_id`, `data`) VALUES ('$message','$post','$date') ";
-                  
+                  $sql = " INSERT INTO `comments`(`post_id`, `user_name`, `email`, `message`, `date`) VALUES ('$message','$post','$date') ";
+                  // ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
+
                   $insertCategory = mysqli_query($con , $sql);
                   // header("Location:post.php/$pid");
               }

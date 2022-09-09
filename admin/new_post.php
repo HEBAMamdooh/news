@@ -12,16 +12,6 @@
       <div class="col-lg-12">
         <form action="" method="post" enctype="multipart/form-data">
           <div class="form-group">
-            <label>Title</label>
-            <input type="text" name="title" class="form-control">
-          </div><!-- Title -->
-
-          <div class="form-group">
-            <label>author</label>
-            <input type="text" name="author" class="form-control">
-          </div><!-- author -->
-
-          <div class="form-group">
             <label>category</label>
             <select  name="category_id" class="form-control" >
               <?php
@@ -35,6 +25,16 @@
               <?php endwhile; ?>
             </select>
           </div><!-- category -->
+          
+          <div class="form-group">
+            <label>author</label>
+            <input type="text" name="author" class="form-control">
+          </div><!-- author -->
+
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control">
+          </div><!-- Title -->
 
           <div class="form-group">
             <label>image</label>
@@ -50,22 +50,22 @@
             <label>tags</label>
             <input type="text" name="tags" class="form-control">
           </div><!-- tags -->
-          
+
           <div class="form-group text-center">
             <button type="submit" name="add_post" class="btn btn-primary">Add post</button>
-          </div><!--  -->
+          </div><!-- NewPost -->
         </form>  
         <?php
           if(isset($_POST['add_post'])){
-            $title = $_POST['title'];                 
-            $author = $_POST['author'];                 
-            $content = $_POST['content'];                 
-            $tags = $_POST['tags'];                 
             $category_id = $_POST['category_id'];      
-            $date = date('d-m-Y');
+            $author = $_POST['author'];                 
+            $title = $_POST['title'];                 
             $image_name =$_FILES['image']['name'];                 
             $image_temp=$_FILES['image']['tmp_name'];
             move_uploaded_file($image_temp,"../images/$image_name");
+            $content = $_POST['content'];                 
+            $tags = $_POST['tags'];                 
+            $date = date('d-m-Y');
             $insertSql = "INSERT INTO `posts`(`category_id`, `author`, `title`, `image`, `content`, `tags`, `date`) 
             VALUES ('$category_id','$author','$title','$image_name','$content','$tags','$date') ";
             $insertPost = mysqli_query($con , $insertSql);
