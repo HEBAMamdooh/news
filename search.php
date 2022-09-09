@@ -9,7 +9,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="page-header">  WIND News <small>By Eng M.zidan </small>  </h1>
+                <h1 class="page-header">  WIND <small>News</small>  </h1>
 
                 <?php
                 if(isset($_POST['search_btn'])){

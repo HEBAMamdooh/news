@@ -1,4 +1,5 @@
-<?php 
+<?php
+$page_title = "Dashboard";
 include('./includes/admin_header.php');
 include('./includes/admin_navbar.php');
 ?>

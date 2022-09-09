@@ -1,4 +1,5 @@
-<?php 
+<?php
+$page_title = "Posts";
 include('./includes/admin_header.php');
 include('./includes/admin_navbar.php');
 ?>
@@ -7,7 +8,7 @@ include('./includes/admin_navbar.php');
 
             <div class="container-fluid">
                 <!-- Page Heading -->
-                <h1 class="page-header"> WIND News  <small>Posts</small> </h1> 
+                <h1 class="page-header"> Posts </h1> 
                 <div class="row">
                     <div class="col-lg-12">
 

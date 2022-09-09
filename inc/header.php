@@ -12,7 +12,7 @@ include('db.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>WIND |<?=$page_title?> < /title>
+  <title>WIND | <?=$page_title?> </title>
 
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">

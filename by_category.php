@@ -1,6 +1,7 @@
 <?php
-    include('./inc/header.php');
-    include('./inc/navbar.php');
+  $page_title = "News";
+  include('./inc/header.php');
+  include('./inc/navbar.php');
 ?>
 
     <!-- Page Content -->
@@ -9,7 +10,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="page-header">  WIND News <small>By Eng M.zidan </small>  </h1>
+                <h1 class="page-header">  WIND  <small>News</small>  </h1>
 
                 <?php
                 $cid = $_GET['cid']; 
