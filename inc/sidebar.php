@@ -1,6 +1,6 @@
 <div class="col-md-4">
-  <!-- Blog Search Well -->
-  <div class="well">
+  <!-- Blog Search Card -->
+  <div class="card p-2 my-2" style="background-color: #e3f2fd;">
     <h4>Blog Search</h4>
     <form action="search.php" method="post">
       <div class="input-group">
@@ -15,31 +15,27 @@
     </form>
   </div>
 
-  <!-- Blog Categories Well -->
-  <div class="well">
+  <!-- Blog Categories card -->
+  <div class="card p-2 my-2" style="background-color: #e3f2fd;">
     <h4>Blog Categories</h4>
-    <div class="row">
-      <div class="col-lg-6">
-        <ul class="list-unstyled">
-          <?php
-            $sql = " SELECT * FROM `categories` LIMIT 4 ";
-            $categories = mysqli_query($con , $sql);
-            while( $row = mysqli_fetch_assoc($categories) ):
-              $id =$row['id'];
-              $name=$row['name'];                 
-          ?> 
-          <li>
-            <a href="by_category.php?cid=<?=$id?>"><?=$name?></a>
-          </li>
-          <?php endwhile; ?>
-        </ul>
-      </div> <!-- /.col-lg-6 -->
-    </div> <!-- /.row -->
+      <ul class="list-group list-group-horizontal border-0">
+        <?php
+          $sql = " SELECT * FROM `categories` LIMIT 4 ";
+          $categories = mysqli_query($con , $sql);
+          while( $row = mysqli_fetch_assoc($categories) ):
+            $id =$row['id'];
+            $name=$row['name'];                 
+        ?> 
+        <li class="list-group-item border-0" style="background-color: #e3f2fd;">
+          <a style="text-decoration: none; background-color: #e3f2fd;" href="by_category.php?cid=<?=$id?>"><?=$name?></a>
+        </li>
+        <?php endwhile; ?>
+      </ul>
   </div>
 
-  <!-- Side Widget Well -->
-  <div class="well">
-    <h4>Side Widget Well</h4>
+  <!-- Side Widget Card -->
+  <div class="card p-2 my-2" style="background-color: #e3f2fd;">
+    <h4>Side Widget Card</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
   </div>
 </div>
