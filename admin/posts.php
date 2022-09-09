@@ -12,14 +12,13 @@
       <div class="col-lg-12">
         <table class="table table-bordered table-hover  table-striped">
           <thead>
-            <tr>
+            <tr class="text-center">
               <th>ID</th>
               <th>Title</th>
               <th>author</th>
               <th>date</th>
               <th>image</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -29,25 +28,28 @@
               $i=0;
               while( $row = mysqli_fetch_assoc($posts) ):
                 $id =$row['id'];
-                $title=$row['title'];                 
+                $category_id=$row['category_id'];                 
                 $author=$row['author'];                 
-                $date=$row['date'];                 
+                $status=$row['status'];                 
+                $title=$row['title'];                 
                 $image=$row['image'];                 
-                // $content=$row['content'];                 
-                $content= substr($row['content'] , 0 , 150) ;                 
+                $content=$row['content'];                 
+                // $content= substr($row['content'] , 0 , 150) ;                 
                 $tags=$row['tags'];                 
-                $comments=$row['comments'];                 
-                $category_id=$row['category_id'];            
+                $date=$row['date'];                 
+                $comments_count=$row['comments_count'];            
                 $i++;                
             ?> 
-            <tr>
+            <tr class="text-center">
               <td><?=$i?></td>
               <td><?=$title?></td>
               <td><?=$author?></td>
               <td><?=$date?></td>
-              <td> <img src="../images/<?=$image?>" height="50" alt=""> </td>
-              <td class="text-center"> <a href="posts.php?edit=<?=$id?>" class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
-              <td class="text-center"> <a href="posts.php?del=<?=$id?>" class="btn btn-danger"><i class="fa fa-trash" ></i></a></td>
+              <td> <img src="../images/<?=$image?>" height="50" class="rounded mx-auto d-block" alt=""> </td>
+              <td class="text-center"> 
+                <a href="posts.php?edit=<?=$id?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                <a href="posts.php?del=<?=$id?>" class="btn btn-danger"><i class="fa fa-trash" ></i></a>
+              </td>
             </tr>
             <?php endwhile; ?>
           </tbody>

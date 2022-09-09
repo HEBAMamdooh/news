@@ -23,7 +23,7 @@
 
           <div class="form-group">
             <label>category</label>
-            <select  name="category" class="form-control" >
+            <select  name="category_id" class="form-control" >
               <?php
                 $sql = " SELECT * FROM `categories` ";
                 $categories = mysqli_query($con , $sql);
@@ -61,12 +61,13 @@
             $author = $_POST['author'];                 
             $content = $_POST['content'];                 
             $tags = $_POST['tags'];                 
-            $category = $_POST['category'];      
+            $category_id = $_POST['category_id'];      
             $date = date('d-m-Y');
             $image_name =$_FILES['image']['name'];                 
             $image_temp=$_FILES['image']['tmp_name'];
             move_uploaded_file($image_temp,"../images/$image_name");
-            $insertSql = "INSERT INTO `posts`( `title`, `author`, `date`, `image`, `content`, `tags`, `category_id`) VALUES ('$title','$author','$content','$tags','$category_id','$date','$image_name') ";
+            $insertSql = "INSERT INTO `posts`(`category_id`, `author`, `title`, `image`, `content`, `tags`, `date`) 
+            VALUES ('$category_id','$author','$title','$image_name','$content','$tags','$date') ";
             $insertPost = mysqli_query($con , $insertSql);
             header("Location:posts.php");
           }

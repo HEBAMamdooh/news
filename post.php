@@ -1,4 +1,5 @@
 <?php
+  $page_title = "Post Details";
   include('./inc/header.php');
   include('./inc/navbar.php');
 ?>
@@ -14,15 +15,16 @@
         $posts = mysqli_query($con , $sql);
         while( $row = mysqli_fetch_assoc($posts) ):
           $id =$row['id'];
-          $title=$row['title'];                 
+          $category_id=$row['category_id'];                 
           $author=$row['author'];                 
-          $date=$row['date'];                 
+          $status=$row['status'];                 
+          $title=$row['title'];                 
           $image=$row['image'];                 
           $content=$row['content'];                 
           // $content= substr($row['content'] , 0 , 150) ;                 
           $tags=$row['tags'];                 
-          $comments=$row['comments'];                 
-          $category_id=$row['category_id'];                 
+          $date=$row['date'];                 
+          $comments_count=$row['comments_count'];                 
       ?> 
       <!-- Title -->
       <h1><?=$title?></h1>
@@ -33,7 +35,7 @@
       <p><span class="glyphicon glyphicon-time"></span> Posted on<?=$date?></p>
       <hr>
       <!-- Preview Image -->
-      <img class="img-responsive" src="images/<?=$image?>" alt="">
+      <img class="img-fluid img-thumbnail" src="images/<?=$image?>" alt="">
       <hr>
       <!-- Post Content -->
       <p><?=$content?></p>

@@ -20,22 +20,23 @@
 
         while( $row = mysqli_fetch_assoc($posts) ):
           $id =$row['id'];
-          $title=$row['title'];                 
+          $category_id=$row['category_id'];                 
           $author=$row['author'];                 
-          $date=$row['date'];                 
+          $status=$row['status'];                 
+          $title=$row['title'];                 
           $image=$row['image'];                 
-          // $content=$row['content'];                 
-          $content= substr($row['content'] , 0 , 150) ;                 
+          $content=$row['content'];                 
+          // $content= substr($row['content'] , 0 , 150) ;                 
           $tags=$row['tags'];                 
-          $comments=$row['comments'];                 
-          $category=$row['category'];                 
+          $date=$row['date'];                 
+          $comments_count=$row['comments_count'];                 
       ?> 
       <!-- Blog Post -->
       <h2><a href="post.php?pid=<?=$id?>"><?=$title?></a></h2>
       <p class="lead">by <a href="index.php"><?=$author?></a></p>
       <p><span class="glyphicon glyphicon-time"></span> Posted on <?=$date?></p>
       <hr>
-      <img class="img-responsive" src="images/<?=$image?>" alt="">
+      <img class="img-fluid img-thumbnail" src="images/<?=$image?>" alt="">
       <hr>
       <p><?=$content?></p>
       <a class="btn btn-primary" href="post.php?pid=<?=$id?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
