@@ -1,38 +1,32 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="index.php">Dashboard</a>
-  </div>
-
-  <!-- Top Menu Items -->
-
-  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav side-nav">
-      <li>
-        <a href="../"><i class="fa fa-fw fa-dashboard"></i> Web Site</a>
-      </li>
-
-      <li>
-        <a href="categories.php"><i class="fa fa-fw fa-dashboard"></i> Categories</a>
-      </li>
-      <li>
-        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
-        <ul id="demo" class="collapse">
-          <li>
-            <a href="posts.php">All Posts</a>
-          </li>
-          <li>
-            <a href="new_post.php">Add New Post</a>
-          </li>
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="index.php">Dashboard</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../"><i class="fa fa-fw fa-dashboard"></i> Web Site</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.php"><i class="fa fa-fw fa-dashboard"></i> Categories</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-fw fa-arrows-v"></i> Posts
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="posts.php">All Posts</a></li>
+            <li><a class="dropdown-item" href="new_post.php">Add New Post</a></li>
           </ul>
-      </li>
-    </ul>
-  </div> <!-- /.navbar-collapse -->
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
 </nav>
