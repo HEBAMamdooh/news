@@ -1,19 +1,15 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
+<nav class="navbar navbar-expand-lg fixed-top"  style="background-color: #e3f2fd;" role="navigation">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.php">WIND</a>
-    </div> <!-- Collect the nav links, forms, and other content for toggling -->
-    
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="index.php">WIND</a>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <?php
           $sql = " SELECT * FROM `categories` ";
           $categories = mysqli_query($con , $sql);
@@ -21,12 +17,12 @@
             $id =$row['id'];
             $name=$row['name'];                 
         ?>
-        <li>
-          <a href="by_category.php?cid=<?=$id?>"><?=$name?></a>
+        <li class="nav-item">
+          <a class="nav-link" href="by_category.php?cid=<?=$id?>"><?=$name?></a>
         </li>
         <?php endwhile; ?>
       </ul>
 
-    </div> <!-- /.navbar-collapse -->
-  </div> <!-- /.container -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container-fluid -->
 </nav>
