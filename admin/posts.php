@@ -41,7 +41,7 @@
                 $i++;                
             ?> 
             <tr class="text-center">
-              <td><?=$i?></td>
+              <td><?=$id?></td>
               <td><?=$title?></td>
               <td><?=$author?></td>
               <td><?=$date?></td>

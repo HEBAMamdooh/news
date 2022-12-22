@@ -44,31 +44,34 @@
       <!-- Blog Comments -->
 
       <!-- Comments Form -->
-      <div class="card">
-          <h4>Leave a Comment:</h4>
-          
-          <?php
-              if(isset($_POST['addComment'])){
-                $post_id = $_POST["$pid"];      
-                  $user_name = $_POST['user_name'];
-                  $email = $_POST['email'];
-                  $message = $_POST['message'];
-                  $date = date('d-m-Y');
-
-                  $sql = " INSERT INTO `comments`(`post_id`, `user_name`, `email`, `message`, `date`) VALUES ('$message','$post','$date') ";
-                  // ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
-
-                  $insertCategory = mysqli_query($con , $sql);
-                  // header("Location:post.php/$pid");
-              }
-          ?>
-          <form role="form" method="post" >
-              <div class="form-group">
-                  <textarea class="form-control" name="message" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" name="addComment" >Submit</button>
-          </form>
-
+      <div class="card m-2">
+        <h4 class=" p-2 ">Participate in the discussion of the article:</h4>
+        <form role="form" method="post" >
+          <div class="row m-2">
+            <div class="col">
+              <input type="text" class="form-control" name="user_name" placeholder="Your Name" aria-label="user_name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="email" placeholder="Email" aria-label="email">
+            </div>
+          </div>
+          <div class="col my-2 px-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Leave Your Comment" ></textarea>
+          </div>
+          <button type="submit" class="col btn btn-primary m-1" name="addComment" >Rebly</button>
+        </form>
+        <?php
+            if(isset($_POST['addComment'])){
+              $post_id = $_GET['pid'] ;     
+              $user_name = $_POST['user_name'];
+              $email = $_POST['email'];
+              $message = $_POST['message'];
+              $date = date("Y-m-d");
+              $sql = " INSERT INTO `comments`(`post_id`, `user_name`, `email`, `message`, `date`) VALUES ('$post_id','$user_name','$email','$message','$date') ";
+              $insertCategory = mysqli_query($con , $sql);
+              // header("Location:post.php/$pid");
+            }
+        ?>
       </div>
 
       <hr>
@@ -76,17 +79,33 @@
       <!-- Posted Comments -->
 
       <!-- Comment -->
-      <div class="media">
-          <a class="pull-left" href="#">
-              <img class="media-object" src="./images/about.jpg" alt="">
-          </a>
-          <div class="media-body">
-              <h4 class="media-heading">Start Bootstrap
-                  <small>August 25, 2014 at 9:30 PM</small>
-              </h4>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-      </div>
+      <?php
+        $pid = $_GET['pid'] ;
+        $sql = " SELECT * FROM `comments` WHERE `post_id` = '$pid' ";
+        $comments = mysqli_query($con , $sql);
+        $i=0;
+        while( $row = mysqli_fetch_assoc($comments) ):
+          $id =$row['id'];
+          $post_id=$row['post_id'];                 
+          $user_name=$row['user_name'];                 
+          $email=$row['email'];                 
+          $message=$row['message'];                 
+          $date=$row['date'];           
+          $i++;              
+      ?>
+      <figure>
+        <blockquote class="blockquote">
+          <p><?=$message?></p>
+        </blockquote>
+        <figcaption class="blockquote-footer"> 
+          written by <strong><?=$user_name?></strong>  in <small><cite title="Source Title"><?=$date?></cite></small> 
+        </figcaption>
+      </figure>
+      <?php endwhile;
+        $pid = $_GET['pid'] ;
+        $updatePost = " UPDATE `posts` SET `comments_count`='$i' WHERE `id` = '$pid'; ";
+        $updat_comments_count = mysqli_query($con , $updatePost);
+      ?>
 
     </div>
 
